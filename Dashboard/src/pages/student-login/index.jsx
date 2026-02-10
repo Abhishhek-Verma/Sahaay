@@ -76,7 +76,7 @@ const StudentLogin = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
                   <Input type="password" placeholder="Enter password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} required className="w-full" />
                 </div>
-                <Button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white" disabled={loading}>
+                <Button type="submit" className={`w-full text-white ${!formData.username || !formData.password ? 'bg-indigo-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'}`} disabled={loading || !formData.username || !formData.password}>
                   {loading ? 'Signing in...' : 'Sign In'}
                 </Button>
               </form>
