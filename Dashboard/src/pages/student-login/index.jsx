@@ -12,6 +12,7 @@ const StudentLogin = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,14 +80,49 @@ const StudentLogin = () => {
                   {loading ? 'Signing in...' : 'Sign In'}
                 </Button>
               </form>
-              
-              <p className="mt-6 text-center text-sm text-gray-600">
-                Don't have an account? <button onClick={() => navigate('/register')} className="text-indigo-600 hover:text-indigo-700 font-medium">Register here</button>
-              </p>
+
+              <div className="mt-4 flex items-center justify-between text-sm">
+                <button onClick={() => setShowResetModal(true)} className="text-gray-500 hover:text-indigo-600 transition-colors">
+                  Forgot Password?
+                </button>
+                <button onClick={() => navigate('/register')} className="text-indigo-600 hover:text-indigo-700 font-medium">
+                  Register here
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </main>
+
+      {/* Forgot Password Modal */}
+      {showResetModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setShowResetModal(false)}>
+          <div className="bg-white rounded-xl shadow-2xl p-6 max-w-sm mx-4 relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowResetModal(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl leading-none"
+            >
+              &times;
+            </button>
+            <div className="text-center">
+              <div className="text-3xl mb-3">🔐</div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Reset Your Password</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Please contact the admin to reset your password.
+              </p>
+              <a
+                href="mailto:sahaay.support@gmail.com?subject=Password Reset Request&body=Hi Admin,%0A%0AI would like to request a password reset for my account.%0A%0AMy username: %0A%0AThank you."
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
+              >
+                ✉️ sahaay.support@gmail.com
+              </a>
+              <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+                For your privacy and security, password resets are handled manually by the admin.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
