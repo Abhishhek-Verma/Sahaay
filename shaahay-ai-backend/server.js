@@ -16,8 +16,27 @@ const app = express();
 connectDB();
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:4028',
+  'http://localhost:3000',
+  'http://localhost:5173',
+  process.env.DASHBOARD_URL,
+  process.env.LANDING_URL,
+].filter(Boolean);
+
 app.use(cors({
-  origin: ['http://localhost:4028', 'http://localhost:3000', 'http://localhost:5173'],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    // Allow any netlify.app subdomain
+    if (origin.endsWith('.netlify.app')) {
+      return callback(null, true);
+    }
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true,
 }));
 app.use(express.json());
