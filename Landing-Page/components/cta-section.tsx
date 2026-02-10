@@ -19,7 +19,7 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            onClick={() => window.location.href = "http://localhost:4028"}
+            onClick={() => window.location.href = "https://sahaay-dashbaord.netlify.app"}
             className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             Begin My Journey
@@ -28,7 +28,7 @@ export function CTASection() {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => window.location.href = "http://localhost:4028/register"}
+            onClick={() => window.location.href = "https://sahaay-dashbaord.netlify.app/register"}
             className="bg-white/60 backdrop-blur-sm border-emerald-200 text-emerald-700 hover:bg-white/80 px-8 py-4 text-lg"
           >
             I'm Just Exploring

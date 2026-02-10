@@ -136,7 +136,7 @@ export function HowItWorksSection() {
               <p className="text-white text-xl font-semibold">Start your wellness journey today</p>
             </div>
             <button 
-              onClick={() => window.location.href = "http://localhost:4028"}
+              onClick={() => window.location.href = "https://sahaay-dashbaord.netlify.app"}
               className="group flex items-center gap-2 px-8 py-4 bg-white text-teal-700 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-lg whitespace-nowrap"
             >
               <span>Get Started</span>

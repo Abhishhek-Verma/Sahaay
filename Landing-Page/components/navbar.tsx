@@ -17,7 +17,7 @@ export function Navbar() {
   }, [])
 
   const handleBeginJourney = () => {
-    window.location.href = "http://localhost:4028"
+    window.location.href = "https://sahaay-dashbaord.netlify.app"
   }
 
   return (

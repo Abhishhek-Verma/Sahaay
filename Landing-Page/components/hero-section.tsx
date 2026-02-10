@@ -325,7 +325,7 @@ export function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
-            onClick={() => window.location.href = "http://localhost:4028"}
+            onClick={() => window.location.href = "https://sahaay-dashbaord.netlify.app"}
             className={`inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 group border-2 ${
               isDarkMode
                 ? "bg-purple-100 border-purple-200 text-purple-900 hover:bg-purple-50 hover:text-purple-800"
