@@ -90,7 +90,7 @@ export function Footer() {
         <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 flex items-center space-x-2">
-              <span>&copy; 2025 Sahaay</span>
+              <span>&copy; 2026 Sahaay</span>
               
               <span>Crafted with care for student wellbeing</span>
             </p>
