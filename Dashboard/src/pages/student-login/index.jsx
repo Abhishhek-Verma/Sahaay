@@ -111,10 +111,10 @@ const StudentLogin = () => {
                 Please contact the admin to reset your password.
               </p>
               <a
-                href="mailto:sahaay.support@gmail.com?subject=Password Reset Request&body=Hi Admin,%0A%0AI would like to request a password reset for my account.%0A%0AMy username: %0A%0AThank you."
+                href="mailto:abhishekatkiet@gmail.com?subject=Password Reset Request&body=Hi Admin,%0A%0AI would like to request a password reset for my account.%0A%0AMy username: %0A%0AThank you."
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
               >
-                ✉️ sahaay.support@gmail.com
+                ✉️ abhishekatkiet@gmail.com
               </a>
               <p className="text-xs text-gray-400 mt-4 leading-relaxed">
                 For your privacy and security, password resets are handled manually by the admin.

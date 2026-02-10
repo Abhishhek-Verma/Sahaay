@@ -65,8 +65,8 @@ export function Footer() {
             <div className="space-y-4 text-slate-300">
               <div className="flex items-center space-x-3">
                 <span className="text-lg">✉️</span>
-                <a href="mailto:support@sahaay.care" className="hover:text-emerald-400 transition-colors">
-                  support@sahaay.care
+                <a href="mailto:abhishekatkiet@gmail.com" className="hover:text-emerald-400 transition-colors">
+                  abhishekatkiet@gmail.com
                 </a>
               </div>
               <div>
@@ -76,10 +76,10 @@ export function Footer() {
               <div className="pt-4">
                 <p className="text-sm text-slate-400 mb-2">For institutional partnerships:</p>
                 <a
-                  href="mailto:partnerships@sahaay.care"
+                  href="mailto:abhishekatkiet@gmail.com"
                   className="text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  partnerships@sahaay.care
+                  abhishekatkiet@gmail.com
                 </a>
               </div>
             </div>
