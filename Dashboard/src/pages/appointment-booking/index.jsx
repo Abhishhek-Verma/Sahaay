@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../utils/api';
 import Header from '../../components/ui/Header';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
@@ -67,7 +68,7 @@ const AppointmentBooking = () => {
   useEffect(() => {
     const fetchCounselors = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/auth/counselors');
+        const response = await fetch(`${API_URL}/auth/counselors`);
         const data = await response.json();
         if (data.success && data.counselors) {
           setCounselors(data.counselors.map(c => ({

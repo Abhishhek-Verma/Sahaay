@@ -1,43 +1,35 @@
-import { useAuth } from '@clerk/clerk-react';
+// API base URL — set VITE_API_URL in .env for production
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-// API base URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Authenticated fetch helper (uses JWT from localStorage)
+export const authFetch = async (endpoint, options = {}) => {
+  try {
+    const token = localStorage.getItem('token');
 
-// Custom hook for authenticated API calls
-export const useAuthFetch = () => {
-  const { getToken } = useAuth();
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
 
-  const authFetch = async (endpoint, options = {}) => {
-    try {
-      const token = await getToken();
-      
-      const headers = {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      };
-
-      if (token) {
-        headers['Authorization'] = `Bearer ${token}`;
-      }
-
-      const response = await fetch(`${API_URL}${endpoint}`, {
-        ...options,
-        headers,
-      });
-
-      if (!response.ok) {
-        const error = await response.json().catch(() => ({ error: 'Request failed' }));
-        throw new Error(error.error || error.message || 'Request failed');
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error('API Error:', error);
-      throw error;
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
     }
-  };
 
-  return authFetch;
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
+
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ error: 'Request failed' }));
+      throw new Error(error.error || error.message || 'Request failed');
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
+  }
 };
 
 // Helper functions

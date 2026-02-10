@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import { API_URL } from '../utils/api';
 
 // Protected Route wrapper component - JWT based authentication
 export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
@@ -19,7 +20,7 @@ export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
 
       try {
         // Verify token with backend
-        const response = await fetch('http://localhost:5000/api/auth/verify', {
+        const response = await fetch(`${API_URL}/auth/verify`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -93,7 +94,7 @@ export const RoleBasedRedirect = () => {
 
       if (token) {
         try {
-          const response = await fetch('http://localhost:5000/api/auth/verify', {
+          const response = await fetch(`${API_URL}/auth/verify`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }

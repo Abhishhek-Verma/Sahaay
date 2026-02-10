@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../utils/api';
 import Header from '../../components/ui/Header';
 import MetricsCard from './components/MetricsCard';
 import StressHeatmap from './components/StressHeatmap';
@@ -34,7 +35,7 @@ const AdminAnalyticsDashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/auth/admin-analytics', {
+      const response = await fetch(`${API_URL}/auth/admin-analytics`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

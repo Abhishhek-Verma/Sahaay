@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../../utils/api';
 import Header from '../../components/ui/Header';
 import TodaySchedule from './components/TodaySchedule';
 import CaseloadOverview from './components/CaseloadOverview';
@@ -51,7 +52,7 @@ const CounselorDashboard = () => {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/api/auth/profile', {
+        const response = await fetch(`${API_URL}/auth/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

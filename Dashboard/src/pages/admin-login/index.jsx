@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../utils/api';
 import Header from '../../components/ui/Header';
 import FloatingLeaves from '../student-login/components/FloatingLeaves';
 import AuthIllustration from '../student-login/components/AuthIllustration';
@@ -30,7 +31,7 @@ const AdminLogin = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
